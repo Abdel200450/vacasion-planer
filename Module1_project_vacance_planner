@@ -1,0 +1,130 @@
+import java.util.Scanner;
+
+public class Module1_project_vacance_planner {
+    public static final Scanner Keyboard = new Scanner(System.in);
+
+    public static void main(String[] args){
+        Part1();
+        Part2();
+        Part3();
+        Part4();
+    }
+
+
+
+    public static void Part1(){
+        // this is the variables that we will use
+        String Name_user, general_name;
+        int Numbers;
+
+        // we will make the the first part
+
+        /*in this part thers is this couple thinks
+         * first greating the users
+         * asking the user about his name
+         * then ask the user about the place where he want to travel
+         * then tell him, that this destatination is greate
+         */
+
+        System.out.println("Hi, and welcom to vacation planner!");
+        System.out.print("What's your name?\t");
+        Name_user = Keyboard.nextLine();
+
+        System.out.print("it's Nice to meet you " + Name_user + " Where would you travel?");
+        general_name = Keyboard.nextLine();
+
+        System.out.println("Good!! " + general_name + " sounds a greate trip.\n*******");
+
+    }
+
+    public static void Part2(){
+        // variabeles
+        int days, menutes, hours, seconds;
+        Double TripBught,
+                HowMuchCurrancy,Spend_per_day,
+                total_curancy, curancy_per_day;
+        String ThreeLetterCurancy;
+
+        /* in this part you will do:
+        * How many days are they going to spend in their destination?
+        * What is their total budget for the trip in USD?
+        * What is the currency symbol for their destination?
+        For example, the us dollar’s is USD, the euro’s is EU etc…
+        * The conversion rate between 1 USD to
+         however many of that destinations currency.
+         For example, there are 0.9 euro to 1 usd, so the user would type in 0.9
+         * How much time the user will spend at their destination in days, hours, minutes and seconds
+         * Show the user their budget in USD for the whole trip and how much they can spend in USD per day
+         * Show the user their budget in the travel destination’s currency for the total trip and per day
+         */
+
+        System.out.print("How many days you will spend in this trip?\t");
+        days = Keyboard.nextInt();
+        System.out.print("What is your total bught in USD, for this trip?\t");
+        TripBught = Keyboard.nextDouble();
+        System.out.print("So now.. i want from you to tell your currency symbol in your destination:\t");
+        ThreeLetterCurancy = Keyboard.next();
+        System.out.print("How many " + ThreeLetterCurancy + " there is in one dollar?\t");
+        HowMuchCurrancy = Keyboard.nextDouble();
+
+        hours = 24 * days;
+        menutes = 60 * hours;
+        seconds = 60 * menutes;
+        System.out.println("You will spend in this trip exactly " + days + " days " + hours + " Hour " + menutes +"min and " + seconds + "sec. " );
+
+        Spend_per_day = TripBught / days;
+        System.out.println("Your total budget for this trip is " + TripBught + " and you can spend every day " + Spend_per_day);
+
+        total_curancy = HowMuchCurrancy * TripBught;
+        curancy_per_day = total_curancy / days;
+        System.out.print("Your total bughte in " + ThreeLetterCurancy +" is " + total_curancy + " and you can spend every day " + curancy_per_day + ThreeLetterCurancy + "\n");
+        System.out.println("********");
+    }
+
+    public static void Part3(){
+        // variables of time
+        Double Defference_hour;
+        int   noon_time, midnight_time;
+
+        /* we will do in this part:
+        * first ask the user about the time defernce betwene his home and the destination
+        * the tell the user what time the midnight will be in the destination
+        * and ell the user what time the will be in his trip
+         */
+
+        System.out.print("What is the time defrence between your home the destination?\t");
+        Defference_hour = Keyboard.nextDouble();
+
+        noon_time = (int) (12 + Defference_hour);
+        midnight_time = (int) (24 + Defference_hour);
+        System.out.println("That means the noon time will be in your destination " + noon_time + ":00 and the midnight time will be " + midnight_time +":00 .");
+        System.out.print("*******\n");
+    }
+
+    public static void Part4(){
+        Double S_Km, S_Mil;
+
+        /* in this part you will simply tacke the aare of the destinaton and convert it to miles2*/
+
+        System.out.print("What is the surface of the area in Km^2 :\t");
+        S_Km = Keyboard.nextDouble();
+
+        S_Mil = S_Km * 0.3861;
+        System.out.println("the surface of your distination in mile^2 is\t" + S_Mil);
+    }
+
+    // this part is new
+    /* You may have noticed some of our math has produced numbers with lots of decimal places, making then not look very nice. In this part, you need to go back and clean up those answers so they each only have 2 decimal places.
+
+     To do this you are going to use a combination of ints and doubles.
+
+     First, multiply the number you want to reformat by 100.
+     Cast the result of part 1 to an int like so:
+     (  int) answerFromOne
+     This will drop any decimal places 3. Convert your answer back to a double, and move the decimal place over by 2 numbers like so:
+
+     answerFromTwo / 100.0
+     If you follow the above steps you should find that any of your answers are not limited to only 2 decimal places, however, those decimal places won’t be rounded, they will just be the first two from the original answer.
+
+     This code will need to be added to each of the methods you wrote for parts II, III and IV.*/
+}
